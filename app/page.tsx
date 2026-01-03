@@ -33,7 +33,7 @@ export default function Page() {
       <header className="sticky top-0 z-50 bg-[#5f2dfe] text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <div className="flex flex-col">
-            <span className="text-base font-semibold tracking-tight">
+            <span className="text-4xl font-semibold tracking-tight text-[#ffb703]">
               {BUSINESS_NAME}
             </span>
             <span className="text-xs text-white/80">{SERVICE_AREA}</span>

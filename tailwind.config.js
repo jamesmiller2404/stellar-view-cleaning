@@ -5,7 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderRadius: {
+        xl: "0.5rem",
+        "2xl": "0.75rem",
+      },
+    },
   },
   plugins: [],
 }
