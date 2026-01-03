@@ -3,11 +3,33 @@
 @tailwind utilities;
 
 :root {
-  color: #0f172a;
-  background-color: #ffffff;
+  color: #0b1220;
+  background-color: #cbe6ff;
+  --accent: #5f2dfe;
+  --accent-strong: #4b1fcf;
 }
 
 body {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+  background: #cbe6ff;
+  color: #0b1220;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+a:hover {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+::selection {
+  background: rgba(95, 45, 254, 0.25);
+  color: #0b1220;
 }

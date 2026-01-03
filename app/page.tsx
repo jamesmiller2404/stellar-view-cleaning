@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 const BUSINESS_NAME = "Stellar View Cleaning";
 const SERVICE_AREA = "Sacramento & surrounding areas"; // <-- change this
-const PHONE = "14805551234"; // <-- change (digits only, include country code 1)
-const DISPLAY_PHONE = "(480) 555-1234"; // <-- change (pretty format)
+const PHONE = "9165551234"; // <-- change (digits only, include country code 1)
+const DISPLAY_PHONE = "(916) 555-1234"; // <-- change (pretty format)
 const SMS_PREFILL = encodeURIComponent(
   "QUOTE - Hi! I'd like a window cleaning quote.\nAddress/Area:\nResidential or Storefront:\nApprox # of windows:\nPreferred day/time:\nAny photos/notes:"
 );
@@ -30,13 +30,13 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-white text-zinc-900">
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur">
+      <header className="sticky top-0 z-50 bg-[#5f2dfe] text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <div className="flex flex-col">
             <span className="text-base font-semibold tracking-tight">
               {BUSINESS_NAME}
             </span>
-            <span className="text-xs text-zinc-500">{SERVICE_AREA}</span>
+            <span className="text-xs text-white/80">{SERVICE_AREA}</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -48,7 +48,7 @@ export default function Page() {
             </a>
             <a
               href={telHref}
-              className="rounded-xl border border-zinc-300 px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
+              className="rounded-xl border border-white/70 px-3 py-2 text-sm font-semibold text-white hover:bg-white/10"
             >
               Call
             </a>
@@ -115,7 +115,7 @@ export default function Page() {
         <div className="rounded-2xl border border-zinc-200 p-6">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-2xl font-bold">No-BS Pricing</h2>
+              <h2 className="text-2xl font-bold">Budget Pricing</h2>
               <p className="mt-1 text-sm text-zinc-700">
                 Exact price confirmed before I start. No surprise fees.
               </p>
@@ -364,16 +364,16 @@ export default function Page() {
           </div>
         </div>
 
-        <footer className="mt-10 border-t border-zinc-200 pt-6 text-xs text-zinc-500">
+        <footer className="mt-10 rounded-2xl bg-[#5f2dfe] pt-6 text-xs text-white shadow-sm">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               (c) {new Date().getFullYear()} {BUSINESS_NAME}
             </div>
             <div className="flex gap-4">
-              <a href={telHref} className="hover:text-zinc-800">
+              <a href={telHref} className="hover:text-white/80">
                 Call {DISPLAY_PHONE}
               </a>
-              <a href={smsHref} className="hover:text-zinc-800">
+              <a href={smsHref} className="hover:text-white/80">
                 Text for Quote
               </a>
             </div>
