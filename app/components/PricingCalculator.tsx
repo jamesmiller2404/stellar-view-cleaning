@@ -3,6 +3,11 @@
 import { useMemo, useState } from "react";
 import { pricingConfig } from "../pricingConfig";
 
+type CustomerType = keyof typeof pricingConfig.rates;
+type ServiceLevel = keyof (typeof pricingConfig.rates)["residential"];
+type WindowType = keyof (typeof pricingConfig.rates)["residential"]["exterior"];
+type AddOnKey = keyof typeof pricingConfig.addOns;
+
 const windowLabels: Record<string, string> = {
   standard: "Standard window",
   large: "Large window",
@@ -19,13 +24,16 @@ const customerTypeLabels: Record<string, string> = {
   commercial: "Commercial",
 };
 
-const addOnKeys = Object.keys(pricingConfig.addOns);
+const customerTypes = Object.keys(pricingConfig.rates) as CustomerType[];
+const windowTypes = pricingConfig.windowTypes as WindowType[];
+const serviceLevels = pricingConfig.serviceLevels as ServiceLevel[];
+const addOnKeys = Object.keys(pricingConfig.addOns) as AddOnKey[];
 
-const buildZeroMap = (keys: string[]) =>
+const buildZeroMap = <T extends string>(keys: readonly T[]) =>
   keys.reduce((acc, key) => {
     acc[key] = 0;
     return acc;
-  }, {} as Record<string, number>);
+  }, {} as Record<T, number>);
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("en-US", {
@@ -43,17 +51,17 @@ const sanitizeCount = (value: string) => {
 };
 
 export default function PricingCalculator() {
-  const [customerType, setCustomerType] = useState("residential");
-  const [serviceLevel, setServiceLevel] = useState("exterior");
+  const [customerType, setCustomerType] = useState<CustomerType>("residential");
+  const [serviceLevel, setServiceLevel] = useState<ServiceLevel>("exterior");
   const [accessConfirmed, setAccessConfirmed] = useState(false);
   const [windowCounts, setWindowCounts] = useState(() =>
-    buildZeroMap(pricingConfig.windowTypes)
+    buildZeroMap(windowTypes)
   );
   const [addOnCounts, setAddOnCounts] = useState(() => buildZeroMap(addOnKeys));
 
   const totals = useMemo(() => {
     const rateTable = pricingConfig.rates[customerType][serviceLevel];
-    const windowSubtotal = pricingConfig.windowTypes.reduce((sum, type) => {
+    const windowSubtotal = windowTypes.reduce((sum, type) => {
       return sum + windowCounts[type] * rateTable[type];
     }, 0);
     const addOnSubtotal = addOnKeys.reduce((sum, key) => {
@@ -62,19 +70,19 @@ export default function PricingCalculator() {
     const subtotal = windowSubtotal + addOnSubtotal;
     const total = Math.max(subtotal, pricingConfig.minimumCharge);
     const lineItems =
-      pricingConfig.windowTypes.reduce((sum, type) => sum + windowCounts[type], 0) +
+      windowTypes.reduce((sum, type) => sum + windowCounts[type], 0) +
       addOnKeys.reduce((sum, key) => sum + addOnCounts[key], 0);
     return { subtotal, total, lineItems };
   }, [addOnCounts, customerType, serviceLevel, windowCounts]);
 
-  const updateWindowCount = (key: string, value: string) => {
+  const updateWindowCount = (key: WindowType, value: string) => {
     setWindowCounts((prev) => ({
       ...prev,
       [key]: sanitizeCount(value),
     }));
   };
 
-  const updateAddOnCount = (key: string, value: string) => {
+  const updateAddOnCount = (key: AddOnKey, value: string) => {
     setAddOnCounts((prev) => ({
       ...prev,
       [key]: sanitizeCount(value),
@@ -94,9 +102,9 @@ export default function PricingCalculator() {
           <select
             className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
             value={customerType}
-            onChange={(event) => setCustomerType(event.target.value)}
+            onChange={(event) => setCustomerType(event.target.value as CustomerType)}
           >
-            {Object.keys(pricingConfig.rates).map((type) => (
+            {customerTypes.map((type) => (
               <option key={type} value={type}>
                 {customerTypeLabels[type] ?? type}
               </option>
@@ -108,9 +116,9 @@ export default function PricingCalculator() {
           <select
             className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
             value={serviceLevel}
-            onChange={(event) => setServiceLevel(event.target.value)}
+            onChange={(event) => setServiceLevel(event.target.value as ServiceLevel)}
           >
-            {pricingConfig.serviceLevels.map((level) => (
+            {serviceLevels.map((level) => (
               <option key={level} value={level}>
                 {serviceLevelLabels[level] ?? level}
               </option>
@@ -134,7 +142,7 @@ export default function PricingCalculator() {
       <div className="mt-4">
         <p className="text-sm font-semibold">Windows</p>
         <div className="mt-2 grid gap-3 sm:grid-cols-2">
-          {pricingConfig.windowTypes.map((type) => (
+          {windowTypes.map((type) => (
             <label
               key={type}
               className="flex items-center justify-between gap-3 rounded-xl border border-zinc-200 px-3 py-2 text-sm"
