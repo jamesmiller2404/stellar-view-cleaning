@@ -4,6 +4,9 @@ export default {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        xs: ["1.0125rem", { lineHeight: "1.35rem" }],
+      },
       borderRadius: {
         xl: "0.5rem",
         "2xl": "0.75rem",

@@ -32,11 +32,18 @@ export default function Page() {
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-[#5f2dfe] text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <div className="flex flex-col">
-            <span className="text-4xl font-semibold tracking-tight text-[#ffb703]">
-              {BUSINESS_NAME}
-            </span>
-            <span className="text-xs text-white/80">{SERVICE_AREA}</span>
+          <div className="flex items-center gap-3">
+            <img
+              src="/static/images/SVC_logo_2.png"
+              alt={`${BUSINESS_NAME} logo`}
+              className="h-[3.9rem] w-[3.9rem] object-contain shadow-[0_6px_10px_rgba(0,0,0,0.35)]"
+            />
+            <div className="flex flex-col gap-1">
+              <span className="text-4xl font-black tracking-tight text-[#ffb703] drop-shadow-[0_6px_5px_rgba(0,0,0,0.9)]">
+                {BUSINESS_NAME}
+              </span>
+              <span className="text-xs text-white/80">{SERVICE_AREA}</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
@@ -268,7 +275,7 @@ export default function Page() {
       </section>
 
       {/* About + Contact */}
-      <section className="mx-auto max-w-5xl px-4 pb-16">
+      <section className="mx-auto max-w-5xl px-4 pb-10">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-zinc-200 p-6">
             <h2 className="text-xl font-bold">About</h2>
@@ -364,22 +371,23 @@ export default function Page() {
           </div>
         </div>
 
-        <footer className="mt-10 rounded-2xl bg-[#5f2dfe] pt-6 text-xs text-white shadow-sm">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              (c) {new Date().getFullYear()} {BUSINESS_NAME}
-            </div>
-            <div className="flex gap-4">
-              <a href={telHref} className="hover:text-white/80">
-                Call {DISPLAY_PHONE}
-              </a>
-              <a href={smsHref} className="hover:text-white/80">
-                Text for Quote
-              </a>
-            </div>
-          </div>
-        </footer>
       </section>
+
+      <footer className="mt-6 bg-[#5f2dfe] py-6 text-xs text-white shadow-sm">
+        <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            (c) {new Date().getFullYear()} {BUSINESS_NAME}
+          </div>
+          <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
+            <a href={telHref} className="hover:text-white/80">
+              Call {DISPLAY_PHONE}
+            </a>
+            <a href={smsHref} className="hover:text-white/80">
+              Text for Quote
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
