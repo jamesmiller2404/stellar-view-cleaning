@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PricingCalculator from "./components/PricingCalculator";
 import { pricingConfig } from "./pricingConfig";
 
-const BUSINESS_NAME = "Stellar View Cleaning";
+const BUSINESS_NAME = "Stellar View Services";
 const SERVICE_AREA = "Sacramento & surrounding areas"; // <-- change this
 const PHONE = "9165551234"; // <-- change (digits only, include country code 1)
 const DISPLAY_PHONE = "(916) 555-1234"; // <-- change (pretty format)
@@ -42,7 +42,7 @@ export default function Page() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
             <img
-              src="/static/images/SVC_logo_2.png"
+              src="/static/images/SVC_logo_3a.png"
               alt={`${BUSINESS_NAME} logo`}
               className="h-[3.9rem] w-[3.9rem] object-contain shadow-[0_6px_10px_rgba(0,0,0,0.35)]"
             />
