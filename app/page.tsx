@@ -47,7 +47,7 @@ export default function Page() {
               className="h-[3.9rem] w-[3.9rem] object-contain shadow-[0_6px_10px_rgba(0,0,0,0.35)]"
             />
             <div className="flex flex-col gap-1">
-              <span className="text-4xl font-black tracking-tight text-[#ffb703] drop-shadow-[0_6px_5px_rgba(0,0,0,0.9)]">
+              <span className="text-4xl font-black tracking-tight text-[#ffb703] drop-shadow-[0_4px_2px_rgba(0,0,0,0.95)]">
                 {BUSINESS_NAME}
               </span>
               <span className="text-xs text-white/80">{SERVICE_AREA}</span>
