@@ -7,6 +7,12 @@ type CustomerType = keyof typeof pricingConfig.rates;
 type ServiceLevel = keyof (typeof pricingConfig.rates)["residential"];
 type WindowType = keyof (typeof pricingConfig.rates)["residential"]["exterior"];
 type AddOnKey = keyof typeof pricingConfig.addOns;
+type AddOn = {
+  label: string;
+  unit: string;
+  price: number;
+  note?: string;
+};
 
 const windowLabels: Record<string, string> = {
   standard: "Standard window",
@@ -166,7 +172,7 @@ export default function PricingCalculator() {
         <p className="text-sm font-semibold">Add-ons</p>
         <div className="mt-2 grid gap-3 sm:grid-cols-2">
           {addOnKeys.map((key) => {
-            const addOn = pricingConfig.addOns[key];
+            const addOn = pricingConfig.addOns[key] as AddOn;
             return (
               <div
                 key={key}
