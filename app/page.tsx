@@ -79,7 +79,7 @@ export default function Page() {
             <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               Residential & Small Business Window Cleaning
             </h1>
-            <p className="mt-3 text-base text-zinc-700">
+            <p className="mt-3 text-base text-zinc-800 font-medium">
               Streak-free windows, clear pricing, and reliable service. Text for a fast quote.
             </p>
 
@@ -98,7 +98,7 @@ export default function Page() {
               </a>
             </div>
 
-            <ul className="mt-6 grid gap-2 text-sm text-zinc-700">
+            <ul className="mt-6 grid gap-2 text-sm text-zinc-800 font-medium">
               <li>- Clear pricing (no games)</li>
               <li>- Edges detailed by hand</li>
               <li>- Satisfaction fix guarantee</li>
@@ -110,12 +110,12 @@ export default function Page() {
           {/* Credibility card */}
           <div className="rounded-2xl border border-zinc-200 p-5 shadow-sm">
             <h2 className="text-lg font-semibold">Fast quote by text</h2>
-            <p className="mt-1 text-sm text-zinc-700">
+            <p className="mt-1 text-sm text-zinc-800 font-medium">
               Send your address/area and (if possible) a couple photos. I'll reply with a clear price before I start.
             </p>
             <div className="mt-4 rounded-xl bg-zinc-50 p-4">
               <p className="text-sm font-semibold">Text template</p>
-              <p className="mt-2 whitespace-pre-line text-sm text-zinc-700">
+              <p className="mt-2 whitespace-pre-line text-sm text-zinc-800 font-medium">
                 QUOTE - My address is:
                 {"\n"}Residential or storefront
                 {"\n"}Approx # of windows
@@ -132,7 +132,7 @@ export default function Page() {
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-2xl font-bold">Budget Pricing</h2>
-              <p className="mt-1 text-sm text-zinc-700">
+              <p className="mt-1 text-sm text-zinc-800 font-medium">
                 Exact price confirmed before I start. No surprise fees.
               </p>
               <p className="mt-1 text-xs text-zinc-500">{pricingConfig.uiCopy.accessDisclaimer}</p>
@@ -159,7 +159,7 @@ export default function Page() {
             <div className="grid gap-4">
               <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
                 <h3 className="text-lg font-semibold">Residential rates</h3>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
                   <li>
                     <span className="font-semibold">Exterior:</span>{" "}
                     {formatCurrency(pricingConfig.rates.residential.exterior.standard)} standard,{" "}
@@ -177,7 +177,7 @@ export default function Page() {
 
               <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
                 <h3 className="text-lg font-semibold">Commercial rates</h3>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
                   <li>
                     <span className="font-semibold">Exterior:</span>{" "}
                     {formatCurrency(pricingConfig.rates.commercial.exterior.standard)} standard,{" "}
@@ -196,7 +196,7 @@ export default function Page() {
 
               <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
                 <h3 className="text-lg font-semibold">Add-ons</h3>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
                   {Object.entries(pricingConfig.addOns).map(([key, addOn]) => (
                     <li key={key}>
                       <span className="font-semibold">
@@ -225,7 +225,7 @@ export default function Page() {
             <div className="mt-4 grid gap-4">
               <div>
                 <h3 className="font-semibold">Residential</h3>
-                <ul className="mt-2 list-disc pl-5 text-sm text-zinc-700">
+                <ul className="mt-2 list-disc pl-5 text-sm text-zinc-800 font-medium">
                   <li>Exterior window cleaning</li>
                   <li>Interior window cleaning (optional)</li>
                   <li>Screens and tracks add-ons</li>
@@ -233,7 +233,7 @@ export default function Page() {
               </div>
               <div>
                 <h3 className="font-semibold">Commercial</h3>
-                <ul className="mt-2 list-disc pl-5 text-sm text-zinc-700">
+                <ul className="mt-2 list-disc pl-5 text-sm text-zinc-800 font-medium">
                   <li>Storefront glass cleaning</li>
                   <li>Weekly/bi-weekly maintenance</li>
                 </ul>
@@ -243,7 +243,7 @@ export default function Page() {
 
           <div className="rounded-2xl border border-zinc-200 p-6">
             <h2 className="text-xl font-bold">How it works</h2>
-            <ol className="mt-4 space-y-3 text-sm text-zinc-700">
+            <ol className="mt-4 space-y-3 text-sm text-zinc-800 font-medium">
               <li>
                 <span className="font-semibold">1) Text me</span> your address/area + what you need.
               </li>
@@ -260,7 +260,7 @@ export default function Page() {
 
             <div className="mt-5 rounded-xl bg-zinc-50 p-4">
               <p className="text-sm font-semibold">Satisfaction Fix Guarantee</p>
-              <p className="mt-1 text-sm text-zinc-700">
+              <p className="mt-1 text-sm text-zinc-800 font-medium">
                 If you notice a missed spot within 24 hours, text a photo and I'll come back and fix it.
               </p>
             </div>
@@ -274,7 +274,7 @@ export default function Page() {
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-2xl font-bold">Recent work</h2>
-              <p className="mt-1 text-sm text-zinc-700">
+              <p className="mt-1 text-sm text-zinc-800 font-medium">
                 Add 2-4 before/after photos here as soon as you can. It boosts trust immediately.
               </p>
             </div>
@@ -308,11 +308,11 @@ export default function Page() {
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-2xl border border-zinc-200 p-6">
             <h2 className="text-xl font-bold">About</h2>
-            <p className="mt-3 text-sm text-zinc-700">
+            <p className="mt-3 text-sm text-zinc-800 font-medium">
               Hi, I'm James. I run {BUSINESS_NAME}. I focus on clear pricing, professional results, and reliable service
               for homes and small businesses.
             </p>
-            <p className="mt-3 text-sm text-zinc-700">
+            <p className="mt-3 text-sm text-zinc-800 font-medium">
               If you're not ready today, save this page; when your windows start looking rough, text me and I'll take
               care of it.
             </p>
@@ -320,7 +320,7 @@ export default function Page() {
 
           <div className="rounded-2xl border border-zinc-200 p-6">
             <h2 className="text-xl font-bold">Get a quote</h2>
-            <p className="mt-2 text-sm text-zinc-700">
+            <p className="mt-2 text-sm text-zinc-800 font-medium">
               Fastest: text me your address/area and what you need.
             </p>
 
