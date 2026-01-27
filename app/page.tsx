@@ -69,6 +69,7 @@ export default function Page() {
             </a>
           </div>
         </div>
+        <hr className="h-[3px] w-full border-0 bg-[#0000ab]" />
       </header>
 
       {/* Hero */}
@@ -402,6 +403,7 @@ export default function Page() {
       </section>
 
       <footer className="mt-6 bg-[#5f2dfe] py-6 text-xs text-white shadow-sm">
+        <hr className="h-[3px] w-full border-0 bg-[#0000ab]" />
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             (c) {new Date().getFullYear()} {BUSINESS_NAME}
