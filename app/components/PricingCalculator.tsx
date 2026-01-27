@@ -85,11 +85,11 @@ export default function PricingCalculator() {
     <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-semibold">Instant estimate</h3>
-        <p className="text-sm text-zinc-700">{pricingConfig.uiCopy.accessDisclaimer}</p>
+        <p className="text-sm text-zinc-800 font-medium">{pricingConfig.uiCopy.accessDisclaimer}</p>
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
-        <label className="grid gap-1 text-sm text-zinc-700">
+        <label className="grid gap-1 text-sm text-zinc-800 font-medium">
           <span className="font-semibold">Customer type</span>
           <select
             className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
@@ -103,7 +103,7 @@ export default function PricingCalculator() {
             ))}
           </select>
         </label>
-        <label className="grid gap-1 text-sm text-zinc-700">
+        <label className="grid gap-1 text-sm text-zinc-800 font-medium">
           <span className="font-semibold">Service level</span>
           <select
             className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
@@ -119,7 +119,7 @@ export default function PricingCalculator() {
         </label>
       </div>
 
-      <div className="mt-4 rounded-xl border border-zinc-200 px-3 py-2 text-sm text-zinc-700">
+      <div className="mt-4 rounded-xl border border-zinc-200 px-3 py-2 text-sm text-zinc-800 font-medium">
         <label className="flex items-start gap-2">
           <input
             type="checkbox"
@@ -189,11 +189,11 @@ export default function PricingCalculator() {
       </div>
 
       <div className="mt-5 rounded-xl bg-zinc-50 p-4">
-        <div className="flex items-center justify-between text-sm text-zinc-700">
+        <div className="flex items-center justify-between text-sm text-zinc-800 font-medium">
           <span>Subtotal</span>
           <span className="font-semibold">{formatCurrency(totals.subtotal)}</span>
         </div>
-        <div className="mt-1 flex items-center justify-between text-sm text-zinc-700">
+        <div className="mt-1 flex items-center justify-between text-sm text-zinc-800 font-medium">
           <span>Minimum charge</span>
           <span className="font-semibold">
             {formatCurrency(pricingConfig.minimumCharge)}

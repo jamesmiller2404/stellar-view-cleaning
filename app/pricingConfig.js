@@ -10,7 +10,7 @@ export const pricingConfig = {
   constraints: {
     accessMode: "step-stool-only",
     accessConfirmationText:
-      "All windows are reachable using a step stool (no ladder work).",
+      "All windows are reachable using a step stool (no ladder work...I don't have a truck yet).",
   },
 
   windowTypes: ["standard", "large", "slider"],
@@ -43,6 +43,6 @@ export const pricingConfig = {
       "Estimate only. Final price may change with heavy buildup, paint/stickers, or hard-water staining.",
     minimumDisclaimer: "A $40 minimum service charge applies.",
     accessDisclaimer:
-      "We currently service windows reachable with a step stool only (no ladder work).",
+      "I currently service windows reachable with a step stool and extender only (no ladder work...I don't have a truck yet).",
   },
 };

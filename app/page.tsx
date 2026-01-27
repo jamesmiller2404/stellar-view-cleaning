@@ -99,12 +99,12 @@ export default function Page() {
             </div>
 
             <ul className="mt-6 grid gap-2 text-sm text-zinc-800 font-medium">
-              <li>- Clear pricing (no games)</li>
+              <li>- Clear pricing</li>
               <li>- Edges detailed by hand</li>
               <li>- Satisfaction fix guarantee</li>
             </ul>
 
-            <p className="mt-4 text-xs text-zinc-500">Serving: {SERVICE_AREA}</p>
+
           </div>
 
           {/* Credibility card */}
