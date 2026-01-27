@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import PricingCalculator from "./components/PricingCalculator";
+import { pricingConfig } from "./pricingConfig";
 
 const BUSINESS_NAME = "Stellar View Cleaning";
 const SERVICE_AREA = "Sacramento & surrounding areas"; // <-- change this
@@ -26,6 +28,12 @@ export const metadata: Metadata = {
 export default function Page() {
   const smsHref = `sms:+${PHONE}?&body=${SMS_PREFILL}`;
   const telHref = `tel:+${PHONE}`;
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: pricingConfig.currency,
+      maximumFractionDigits: 0,
+    }).format(value);
 
   return (
     <main className="min-h-screen bg-white text-zinc-900">
@@ -126,6 +134,7 @@ export default function Page() {
               <p className="mt-1 text-sm text-zinc-700">
                 Exact price confirmed before I start. No surprise fees.
               </p>
+              <p className="mt-1 text-xs text-zinc-500">{pricingConfig.uiCopy.accessDisclaimer}</p>
             </div>
             <div className="flex gap-2">
               <a
@@ -143,46 +152,65 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
-              <h3 className="text-lg font-semibold">Residential</h3>
-              <ul className="mt-3 space-y-2 text-sm text-zinc-700">
-                <li>
-                  <span className="font-semibold">$6</span> per standard window (exterior)
-                </li>
-                <li>
-                  <span className="font-semibold">$10</span> per window (interior + exterior)
-                </li>
-                <li>
-                  <span className="font-semibold">$3</span> per screen (wash + dry)
-                </li>
-                <li>
-                  <span className="font-semibold">$2</span> per track (vacuum + wipe)
-                </li>
-              </ul>
-              <p className="mt-4 text-sm text-zinc-700">
-                Typical single-story exterior: <span className="font-semibold">$80-$140</span>
-              </p>
-            </div>
+          <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <PricingCalculator />
 
-            <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
-              <h3 className="text-lg font-semibold">Storefront / Small Business</h3>
-              <ul className="mt-3 space-y-2 text-sm text-zinc-700">
-                <li>
-                  <span className="font-semibold">$25-$40</span> one-time visit
-                </li>
-                <li>
-                  <span className="font-semibold">$20-$30</span> weekly maintenance
-                </li>
-                <li>
-                  <span className="font-semibold">$25-$35</span> bi-weekly maintenance
-                </li>
-              </ul>
-              <p className="mt-4 text-sm text-zinc-700">No contracts; cancel anytime.</p>
+            <div className="grid gap-4">
+              <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+                <h3 className="text-lg font-semibold">Residential rates</h3>
+                <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                  <li>
+                    <span className="font-semibold">Exterior:</span>{" "}
+                    {formatCurrency(pricingConfig.rates.residential.exterior.standard)} standard,{" "}
+                    {formatCurrency(pricingConfig.rates.residential.exterior.large)} large,{" "}
+                    {formatCurrency(pricingConfig.rates.residential.exterior.slider)} slider
+                  </li>
+                  <li>
+                    <span className="font-semibold">In & out:</span>{" "}
+                    {formatCurrency(pricingConfig.rates.residential.inOut.standard)} standard,{" "}
+                    {formatCurrency(pricingConfig.rates.residential.inOut.large)} large,{" "}
+                    {formatCurrency(pricingConfig.rates.residential.inOut.slider)} slider
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+                <h3 className="text-lg font-semibold">Commercial rates</h3>
+                <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                  <li>
+                    <span className="font-semibold">Exterior:</span>{" "}
+                    {formatCurrency(pricingConfig.rates.commercial.exterior.standard)} standard,{" "}
+                    {formatCurrency(pricingConfig.rates.commercial.exterior.large)} large,{" "}
+                    {formatCurrency(pricingConfig.rates.commercial.exterior.slider)} slider
+                  </li>
+                  <li>
+                    <span className="font-semibold">In & out:</span>{" "}
+                    {formatCurrency(pricingConfig.rates.commercial.inOut.standard)} standard,{" "}
+                    {formatCurrency(pricingConfig.rates.commercial.inOut.large)} large,{" "}
+                    {formatCurrency(pricingConfig.rates.commercial.inOut.slider)} slider
+                  </li>
+                </ul>
+                <p className="mt-3 text-xs text-zinc-500">Storefront or small business glass.</p>
+              </div>
+
+              <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+                <h3 className="text-lg font-semibold">Add-ons</h3>
+                <ul className="mt-3 space-y-2 text-sm text-zinc-700">
+                  {Object.entries(pricingConfig.addOns).map(([key, addOn]) => (
+                    <li key={key}>
+                      <span className="font-semibold">
+                        {addOn.label}:
+                      </span>{" "}
+                      {formatCurrency(addOn.price)} per {addOn.unit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
 
-          <p className="mt-5 text-xs text-zinc-500">
+          <p className="mt-5 text-xs text-zinc-500">{pricingConfig.uiCopy.minimumDisclaimer}</p>
+          <p className="mt-2 text-xs text-zinc-500">
             Note: High-rise work and pressure washing are not offered.
           </p>
         </div>
