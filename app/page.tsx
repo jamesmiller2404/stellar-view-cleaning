@@ -3,7 +3,7 @@ import PricingCalculator from "./components/PricingCalculator";
 import { pricingConfig } from "./pricingConfig";
 
 const BUSINESS_NAME = "Stellar View Services";
-const SERVICE_AREA = "Sacramento & surrounding areas"; // <-- change this
+const SERVICE_AREA = "Sacramento & Surrounding Areas"; // <-- change this
 const PHONE = "9165551234"; // <-- change (digits only, include country code 1)
 const DISPLAY_PHONE = "(916) 555-1234"; // <-- change (pretty format)
 const SMS_PREFILL = encodeURIComponent(
@@ -133,7 +133,7 @@ export default function Page() {
             <div>
               <h2 className="text-2xl font-bold">Budget Pricing</h2>
               <p className="mt-1 text-sm text-zinc-800 font-medium">
-                Exact price confirmed before I start. No surprise fees.
+                Exact price before I start. No surprise fees.
               </p>
               <p className="mt-1 text-xs text-zinc-500">{pricingConfig.uiCopy.accessDisclaimer}</p>
             </div>
@@ -268,14 +268,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Proof / Photos placeholder */}
+      {/* Proof / Photos */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
         <div className="rounded-2xl border border-zinc-200 p-6">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-2xl font-bold">Recent work</h2>
+              <h2 className="text-2xl font-bold">Recent Work</h2>
               <p className="mt-1 text-sm text-zinc-800 font-medium">
-                Add 2-4 before/after photos here as soon as you can. It boosts trust immediately.
+                Before and After
               </p>
             </div>
             <a
@@ -286,19 +286,33 @@ export default function Page() {
             </a>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[4/3] rounded-xl bg-zinc-100 ring-1 ring-zinc-200"
-                aria-label="Photo placeholder"
-                title="Replace with a real before/after photo"
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <figure className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+              <img
+                src="/static/images/example1_dirty.png"
+                alt="Before cleaning: dirty windows"
+                className="h-full w-full object-cover"
+                loading="lazy"
               />
-            ))}
+              <figcaption className="px-4 py-3 text-sm font-semibold text-zinc-800">
+                Before
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+              <img
+                src="/static/images/example1_clear.png"
+                alt="After cleaning: clear windows"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <figcaption className="px-4 py-3 text-sm font-semibold text-zinc-800">
+                After
+              </figcaption>
+            </figure>
           </div>
 
           <p className="mt-4 text-xs text-zinc-500">
-            Pro tip: take photos in the same angle/lighting. Even one good set helps.
+            Example: exterior storefront glass.
           </p>
         </div>
       </section>
@@ -313,7 +327,7 @@ export default function Page() {
               for homes and small businesses.
             </p>
             <p className="mt-3 text-sm text-zinc-800 font-medium">
-              If you're not ready today, save this page; when your windows start looking rough, text me and I'll take
+              If you're not ready today, save this page--when your windows start looking rough, text me and I'll take
               care of it.
             </p>
           </div>
@@ -411,9 +425,6 @@ export default function Page() {
           <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
             <a href={telHref} className="hover:text-white/80">
               Call {DISPLAY_PHONE}
-            </a>
-            <a href={smsHref} className="hover:text-white/80">
-              Text for Quote
             </a>
           </div>
         </div>
