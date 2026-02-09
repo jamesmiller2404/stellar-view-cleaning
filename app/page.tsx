@@ -39,15 +39,15 @@ export default function Page() {
     <main className="min-h-screen bg-white text-zinc-900">
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-[#5f2dfe] text-white shadow-sm">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <img
               src="/static/images/SVC_logo_3a.png"
               alt={`${BUSINESS_NAME} logo`}
-              className="h-[3.9rem] w-[3.9rem] object-contain shadow-[0_6px_10px_rgba(0,0,0,0.35)]"
+              className="h-[7rem] w-[7rem] object-contain shadow-[0_6px_10px_rgba(0,0,0,0.35)] sm:h-[3.9rem] sm:w-[3.9rem]"
             />
             <div className="flex flex-col gap-1">
-              <span className="text-4xl font-black tracking-tight text-[#ffb703] drop-shadow-[0_4px_2px_rgba(0,0,0,0.95)]">
+              <span className="text-3xl font-black tracking-tight text-[#ffb703] drop-shadow-[0_4px_2px_rgba(0,0,0,0.95)] sm:text-4xl">
                 {BUSINESS_NAME}
               </span>
               <span className="text-xs text-white/80">{SERVICE_AREA}</span>
