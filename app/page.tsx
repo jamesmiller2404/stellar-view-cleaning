@@ -407,7 +407,8 @@ export default function Page() {
                 </p>
               </form>
             ) : (
-
+              <p className="mt-5 text-xs text-zinc-500">
+              </p>
             )}
           </div>
         </div>
