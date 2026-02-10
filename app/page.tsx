@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import PricingCalculator from "./components/PricingCalculator";
+import PhoneActionButton from "./components/PhoneActionButton";
 import { pricingConfig } from "./pricingConfig";
 
 const BUSINESS_NAME = "Stellar View Services";
 const SERVICE_AREA = "Sacramento & Surrounding Areas"; // <-- change this
-const PHONE = "9165551234"; // <-- change (digits only, include country code 1)
-const DISPLAY_PHONE = "(916) 555-1234"; // <-- change (pretty format)
-const SMS_PREFILL = encodeURIComponent(
-  "QUOTE - Hi! I'd like a window cleaning quote.\nAddress/Area:\nResidential or Storefront:\nApprox # of windows:\nPreferred day/time:\nAny photos/notes:"
-);
+const SMS_PREFILL =
+  "QUOTE - Hi! I'd like a window cleaning quote.\nAddress/Area:\nResidential or Storefront:\nApprox # of windows:\nPreferred day/time:\nAny photos/notes:";
 
 // Optional (Formspree): replace with your endpoint or set to "" to hide the form.
 const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/abcdwxyz"
@@ -26,8 +24,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const smsHref = `sms:+${PHONE}?&body=${SMS_PREFILL}`;
-  const telHref = `tel:+${PHONE}`;
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -55,18 +51,21 @@ export default function Page() {
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href={smsHref}
+            <PhoneActionButton
+              kind="sms"
+              body={SMS_PREFILL}
               className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
+              ariaLabel="Text for a quote"
             >
               Text for Quote
-            </a>
-            <a
-              href={telHref}
+            </PhoneActionButton>
+            <PhoneActionButton
+              kind="tel"
               className="rounded-xl border border-white/70 px-3 py-2 text-sm font-semibold text-white hover:bg-white/10"
+              ariaLabel="Call now"
             >
-              Call
-            </a>
+              Call now
+            </PhoneActionButton>
           </div>
         </div>
         <hr className="h-[3px] w-full border-0 bg-[#0000ab]" />
@@ -84,18 +83,21 @@ export default function Page() {
             </p>
 
             <div className="mt-6 flex flex-col gap-2 sm:flex-row">
-              <a
-                href={smsHref}
+              <PhoneActionButton
+                kind="sms"
+                body={SMS_PREFILL}
                 className="rounded-xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
+                ariaLabel='Text "QUOTE" for a price'
               >
                 Text "QUOTE" for a price
-              </a>
-              <a
-                href={telHref}
+              </PhoneActionButton>
+              <PhoneActionButton
+                kind="tel"
                 className="rounded-xl border border-zinc-300 px-5 py-3 text-center text-sm font-semibold hover:bg-zinc-50"
+                ariaLabel="Call now"
               >
-                Call {DISPLAY_PHONE}
-              </a>
+                Call now
+              </PhoneActionButton>
             </div>
 
             <ul className="mt-6 grid gap-2 text-sm text-zinc-800 font-medium">
@@ -138,18 +140,21 @@ export default function Page() {
               <p className="mt-1 text-xs text-zinc-500">{pricingConfig.uiCopy.accessDisclaimer}</p>
             </div>
             <div className="flex gap-2">
-              <a
-                href={smsHref}
+              <PhoneActionButton
+                kind="sms"
+                body={SMS_PREFILL}
                 className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
+                ariaLabel="Text for a quote"
               >
                 Text for Quote
-              </a>
-              <a
-                href={telHref}
+              </PhoneActionButton>
+              <PhoneActionButton
+                kind="tel"
                 className="rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
+                ariaLabel="Call now"
               >
-                Call
-              </a>
+                Call now
+              </PhoneActionButton>
             </div>
           </div>
 
@@ -278,12 +283,14 @@ export default function Page() {
                 Before and After
               </p>
             </div>
-            <a
-              href={smsHref}
+            <PhoneActionButton
+              kind="sms"
+              body={SMS_PREFILL}
               className="rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
+              ariaLabel="Text for a quote"
             >
               Text for Quote
-            </a>
+            </PhoneActionButton>
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -317,6 +324,23 @@ export default function Page() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="mx-auto max-w-5xl px-4 pb-10">
+        <div className="rounded-2xl border border-zinc-200 p-6">
+          <h2 className="text-2xl font-bold">FAQ</h2>
+          <div className="mt-4 grid gap-4">
+            <div>
+              <h3 className="text-sm font-semibold">Do you use ladders?</h3>
+              <p className="mt-1 text-sm text-zinc-800 font-medium">
+                Not at the moment. I currently service windows reachable with a step stool and
+                extension pole. If you need ladder access, text me and I&apos;ll let you know what
+                is possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About + Contact */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
         <div className="grid gap-6 md:grid-cols-2">
@@ -339,18 +363,21 @@ export default function Page() {
             </p>
 
             <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-              <a
-                href={smsHref}
+              <PhoneActionButton
+                kind="sms"
+                body={SMS_PREFILL}
                 className="rounded-xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
+                ariaLabel="Text for a quote"
               >
                 Text for Quote
-              </a>
-              <a
-                href={telHref}
+              </PhoneActionButton>
+              <PhoneActionButton
+                kind="tel"
                 className="rounded-xl border border-zinc-300 px-5 py-3 text-center text-sm font-semibold hover:bg-zinc-50"
+                ariaLabel="Call now"
               >
-                Call {DISPLAY_PHONE}
-              </a>
+                Call now
+              </PhoneActionButton>
             </div>
 
             {/* Optional form (no backend) */}
@@ -422,9 +449,13 @@ export default function Page() {
             (c) {new Date().getFullYear()} {BUSINESS_NAME}
           </div>
           <div className="flex flex-col gap-2 sm:flex-row sm:gap-4">
-            <a href={telHref} className="hover:text-white/80">
-              Call {DISPLAY_PHONE}
-            </a>
+            <PhoneActionButton
+              kind="tel"
+              className="hover:text-white/80"
+              ariaLabel="Call now"
+            >
+              Call now
+            </PhoneActionButton>
           </div>
         </div>
       </footer>

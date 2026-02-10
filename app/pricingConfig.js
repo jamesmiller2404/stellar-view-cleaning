@@ -1,16 +1,16 @@
 // pricingConfig.js
-// Budget pricing for ground-reachable windows using a step stool (no ladders/truck).
+// Budget pricing for ground-reachable windows using a step stool or extension pole.
 // Totals: total = Math.max(subtotal, pricingConfig.minimumCharge)
 
 export const pricingConfig = {
   currency: "USD",
   minimumCharge: 40,
 
-  // UI/validation gate: step-stool allowed, but no ladder work.
+  // UI/validation gate: step-stool / extension pole access only.
   constraints: {
     accessMode: "step-stool-only",
     accessConfirmationText:
-      "All windows are reachable using a step stool (no ladder work...I don't have a truck yet).",
+      "All windows are reachable from the ground or with a step stool/extension pole.",
   },
 
   windowTypes: ["standard", "large", "slider"],
@@ -43,6 +43,6 @@ export const pricingConfig = {
       "Estimate only. Final price may change with heavy buildup, paint/stickers, or hard-water staining.",
     minimumDisclaimer: "A $40 minimum service charge applies.",
     accessDisclaimer:
-      "I currently service windows reachable with a step stool and extender only (no ladder work...I don't have a truck yet).",
+      "Note: I currently service windows reachable with a step stool and extension pole (no ladder work yet).",
   },
 };

@@ -99,7 +99,9 @@ export default function PricingCalculator() {
     <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-semibold">Instant estimate</h3>
-        <p className="text-sm text-zinc-800 font-medium">{pricingConfig.uiCopy.accessDisclaimer}</p>
+        <p className="text-sm text-zinc-800 font-medium">
+          Use the counts below for a quick estimate. Exact price is confirmed by text.
+        </p>
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
