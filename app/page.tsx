@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import PricingCalculator from "./components/PricingCalculator";
 import PhoneActionButton from "./components/PhoneActionButton";
+import QuoteTextCard from "./components/QuoteTextCard";
 import { pricingConfig } from "./pricingConfig";
 
 const BUSINESS_NAME = "Stellar View Services";
 const SERVICE_AREA = "Sacramento & Surrounding Areas"; // <-- change this
 const SMS_PREFILL =
-  "QUOTE - Hi! I'd like a window cleaning quote.\nAddress/Area:\nResidential or Storefront:\nApprox # of windows:\nPreferred day/time:\nAny photos/notes:";
+  "QUOTE - Hi! I'd like a window cleaning quote.\nName:\nAddress/Area:\nResidential or Storefront:\nApprox # of windows:\nPreferred day/time:\nPhotos/notes:";
 
 // Optional (Formspree): replace with your endpoint or set to "" to hide the form.
 const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/abcdwxyz"
@@ -109,22 +110,8 @@ export default function Page() {
 
           </div>
 
-          {/* Credibility card */}
-          <div className="rounded-2xl border border-zinc-200 p-5 shadow-sm">
-            <h2 className="text-lg font-semibold">Fast quote by text</h2>
-            <p className="mt-1 text-sm text-zinc-800 font-medium">
-              Send your address/area and (if possible) a couple photos. I'll reply with a clear price before I start.
-            </p>
-            <div className="mt-4 rounded-xl bg-zinc-50 p-4">
-              <p className="text-sm font-semibold">Text template</p>
-              <p className="mt-2 whitespace-pre-line text-sm text-zinc-800 font-medium">
-                QUOTE - My address is:
-                {"\n"}Residential or storefront
-                {"\n"}Approx # of windows
-                {"\n"}Preferred day/time
-              </p>
-            </div>
-          </div>
+          {/* Quote-by-text card */}
+          <QuoteTextCard />
         </div>
       </section>
 
