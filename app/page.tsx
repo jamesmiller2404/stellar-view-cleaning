@@ -9,9 +9,6 @@ const SERVICE_AREA = "Sacramento & Surrounding Areas"; // <-- change this
 const SMS_PREFILL =
   "QUOTE - Hi! I'd like a window cleaning quote.\nName:\nAddress/Area:\nResidential or Storefront:\nApprox # of windows:\nPreferred day/time:\nPhotos/notes:";
 
-// Optional (Formspree): replace with your endpoint or set to "" to hide the form.
-const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/abcdwxyz"
-
 export const metadata: Metadata = {
   title: `${BUSINESS_NAME} | Window Cleaning in ${SERVICE_AREA}`,
   description:
@@ -121,28 +118,10 @@ export default function Page() {
           <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <PricingCalculator />
 
-            <div className="grid gap-4">
-              <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
-                <h3 className="text-lg font-semibold">Residential rates</h3>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
-                  <li>
-                    <span className="font-semibold">Exterior:</span>{" "}
-                    {formatCurrency(pricingConfig.rates.residential.exterior.standard)} standard,{" "}
-                    {formatCurrency(pricingConfig.rates.residential.exterior.large)} large,{" "}
-                    {formatCurrency(pricingConfig.rates.residential.exterior.slider)} slider
-                  </li>
-                  <li>
-                    <span className="font-semibold">In & out:</span>{" "}
-                    {formatCurrency(pricingConfig.rates.residential.inOut.standard)} standard,{" "}
-                    {formatCurrency(pricingConfig.rates.residential.inOut.large)} large,{" "}
-                    {formatCurrency(pricingConfig.rates.residential.inOut.slider)} slider
-                  </li>
-                </ul>
-              </div>
-
-              <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
-                <h3 className="text-lg font-semibold">Commercial rates</h3>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
+            <div className="grid gap-3">
+              <div className="rounded-2xl bg-surface p-4 ring-1 ring-line">
+                <h3 className="text-base font-semibold">Residential & Commercial rates</h3>
+                <ul className="mt-2 space-y-1.5 text-sm leading-snug text-zinc-800 font-medium">
                   <li>
                     <span className="font-semibold">Exterior:</span>{" "}
                     {formatCurrency(pricingConfig.rates.commercial.exterior.standard)} standard,{" "}
@@ -156,12 +135,14 @@ export default function Page() {
                     {formatCurrency(pricingConfig.rates.commercial.inOut.slider)} slider
                   </li>
                 </ul>
-                <p className="mt-3 text-xs text-zinc-500">Storefront or small business glass.</p>
+                <p className="mt-2 text-xs leading-snug text-zinc-500">
+                  Residential homes, storefront, or small business glass.
+                </p>
               </div>
 
-              <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
-                <h3 className="text-lg font-semibold">Add-ons</h3>
-                <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
+              <div className="rounded-2xl bg-surface p-4 ring-1 ring-line">
+                <h3 className="text-base font-semibold">Add-ons</h3>
+                <ul className="mt-2 space-y-1.5 text-sm leading-snug text-zinc-800 font-medium">
                   {Object.entries(pricingConfig.addOns).map(([key, addOn]) => (
                     <li key={key}>
                       <span className="font-semibold">
@@ -308,103 +289,17 @@ export default function Page() {
 
       {/* About + Contact */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-line p-6">
-            <h2 className="text-xl font-bold">About</h2>
-            <p className="mt-3 text-sm text-zinc-800 font-medium">
-              Hi, I'm James. I run {BUSINESS_NAME}. I focus on clear pricing, professional results, and reliable service
-              for homes and small businesses.
-            </p>
-            <p className="mt-3 text-sm text-zinc-800 font-medium">
-              If you're not ready today, save this page--when your windows start looking rough, text me and I'll take
-              care of it.
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-line p-6">
-            <h2 className="text-xl font-bold">Get a quote</h2>
-            <p className="mt-2 text-sm text-zinc-800 font-medium">
-              Fastest: text me your address/area and what you need.
-            </p>
-
-            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-              <PhoneActionButton
-                kind="sms"
-                body={SMS_PREFILL}
-                className="rounded-xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
-                ariaLabel="Text for a quote"
-              >
-                Text for Quote
-              </PhoneActionButton>
-              <PhoneActionButton
-                kind="tel"
-                className="rounded-xl border border-line-strong px-5 py-3 text-center text-sm font-semibold hover:bg-surface-muted"
-                ariaLabel="Call now"
-              >
-                Call now
-              </PhoneActionButton>
-            </div>
-
-            {/* Optional form (no backend) */}
-            {FORMSPREE_ENDPOINT ? (
-              <form action={FORMSPREE_ENDPOINT} method="POST" className="mt-6 grid gap-3">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <input
-                    name="name"
-                    required
-                    placeholder="Name"
-                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
-                  />
-                  <input
-                    name="phone"
-                    required
-                    placeholder="Phone"
-                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
-                  />
-                </div>
-                <input
-                  name="location"
-                  required
-                  placeholder="Address or neighborhood"
-                  className="rounded-xl border border-line-strong px-3 py-2 text-sm"
-                />
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <select
-                    name="type"
-                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
-                    defaultValue="Residential"
-                  >
-                    <option>Residential</option>
-                    <option>Storefront</option>
-                  </select>
-                  <input
-                    name="windows"
-                    placeholder="Approx # of windows (optional)"
-                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
-                  />
-                </div>
-                <textarea
-                  name="notes"
-                  placeholder="Notes (optional)"
-                  className="min-h-[90px] rounded-xl border border-line-strong px-3 py-2 text-sm"
-                />
-                <button
-                  type="submit"
-                  className="rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
-                >
-                  Request Quote
-                </button>
-                <p className="text-xs text-zinc-500">
-                  This form sends to my email. No spam, no nonsense.
-                </p>
-              </form>
-            ) : (
-              <p className="mt-5 text-xs text-zinc-500">
-              </p>
-            )}
-          </div>
+        <div className="rounded-2xl border border-line p-6">
+          <h2 className="text-xl font-bold">About</h2>
+          <p className="mt-3 text-sm text-zinc-800 font-medium">
+            Hi, I'm James. I run {BUSINESS_NAME}. I focus on clear pricing, professional results, and reliable service
+            for homes and small businesses.
+          </p>
+          <p className="mt-3 text-sm text-zinc-800 font-medium">
+            If you're not ready today, save this page--when your windows start looking rough, text me and I'll take
+            care of it.
+          </p>
         </div>
-
       </section>
 
       <footer className="mt-6 bg-[#5f2dfe] pb-6 text-xs text-white shadow-sm">
