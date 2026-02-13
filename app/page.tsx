@@ -15,11 +15,11 @@ const FORMSPREE_ENDPOINT = ""; // e.g. "https://formspree.io/f/abcdwxyz"
 export const metadata: Metadata = {
   title: `${BUSINESS_NAME} | Window Cleaning in ${SERVICE_AREA}`,
   description:
-    "Residential and small business window cleaning with clear pricing, fast quotes by text, and a satisfaction fix guarantee.",
+    "Residential and small business window cleaning with clear pricing, and a satisfaction fix guarantee.",
   openGraph: {
     title: `${BUSINESS_NAME}`,
     description:
-      "Streak-free window cleaning for homes and small businesses. Clear pricing. Fast quotes.",
+      "Streak-free window cleaning for homes and small businesses, with clear pricing.",
     type: "website",
   },
 };
@@ -74,39 +74,14 @@ export default function Page() {
 
       {/* Hero */}
       <section className="mx-auto max-w-5xl px-4 py-10">
-        <div className="grid gap-8 md:grid-cols-2 md:items-center">
+        <div className="grid gap-8">
           <div>
             <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               Residential & Small Business Window Cleaning
             </h1>
             <p className="mt-3 text-base text-zinc-800 font-medium">
-              Streak-free windows, clear pricing, and reliable service. Text for a fast quote.
+              Streak-free windows, clear pricing, and reliable service. Text for a quote.
             </p>
-
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
-              <PhoneActionButton
-                kind="sms"
-                body={SMS_PREFILL}
-                className="rounded-xl bg-zinc-900 px-5 py-3 text-center text-sm font-semibold text-white hover:bg-zinc-800"
-                ariaLabel='Text "QUOTE" for a price'
-              >
-                Text "QUOTE" for a price
-              </PhoneActionButton>
-              <PhoneActionButton
-                kind="tel"
-                className="rounded-xl border border-zinc-300 px-5 py-3 text-center text-sm font-semibold hover:bg-zinc-50"
-                ariaLabel="Call now"
-              >
-                Call now
-              </PhoneActionButton>
-            </div>
-
-            <ul className="mt-6 grid gap-2 text-sm text-zinc-800 font-medium">
-              <li>- Clear pricing</li>
-              <li>- Edges detailed by hand</li>
-              <li>- Satisfaction fix guarantee</li>
-            </ul>
-
 
           </div>
 

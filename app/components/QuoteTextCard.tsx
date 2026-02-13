@@ -42,14 +42,11 @@ export default function QuoteTextCard() {
     <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold">Text me for a fast quote</h2>
+          <h2 className="text-lg font-semibold">Text me for a quote</h2>
           <p className="mt-1 text-sm text-zinc-800 font-medium">
             Fill this in and tap send. Your phone opens a pre-filled text to my number.
           </p>
         </div>
-        <span className="rounded-full bg-[#ffb703] px-3 py-1 text-xs font-semibold text-zinc-900">
-          1 minute
-        </span>
       </div>
 
       <div className="mt-4 grid gap-3">
