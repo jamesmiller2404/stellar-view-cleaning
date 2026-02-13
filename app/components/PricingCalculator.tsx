@@ -96,7 +96,7 @@ export default function PricingCalculator() {
   };
 
   return (
-    <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+    <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-semibold">Instant estimate</h3>
         <p className="text-sm text-zinc-800 font-medium">
@@ -108,7 +108,7 @@ export default function PricingCalculator() {
         <label className="grid gap-1 text-sm text-zinc-800 font-medium">
           <span className="font-semibold">Customer type</span>
           <select
-            className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+            className="rounded-xl border border-line-strong px-3 py-2 text-sm"
             value={customerType}
             onChange={(event) => setCustomerType(event.target.value as CustomerType)}
           >
@@ -122,7 +122,7 @@ export default function PricingCalculator() {
         <label className="grid gap-1 text-sm text-zinc-800 font-medium">
           <span className="font-semibold">Service level</span>
           <select
-            className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+            className="rounded-xl border border-line-strong px-3 py-2 text-sm"
             value={serviceLevel}
             onChange={(event) => setServiceLevel(event.target.value as ServiceLevel)}
           >
@@ -135,11 +135,11 @@ export default function PricingCalculator() {
         </label>
       </div>
 
-      <div className="mt-4 rounded-xl border border-zinc-200 px-3 py-2 text-sm text-zinc-800 font-medium">
+      <div className="mt-4 rounded-xl border border-line px-3 py-2 text-sm text-zinc-800 font-medium">
         <label className="flex items-start gap-2">
           <input
             type="checkbox"
-            className="mt-1 h-4 w-4 rounded border-zinc-300"
+            className="mt-1 h-4 w-4 rounded border-line-strong"
             checked={accessConfirmed}
             onChange={(event) => setAccessConfirmed(event.target.checked)}
           />
@@ -153,7 +153,7 @@ export default function PricingCalculator() {
           {windowTypes.map((type) => (
             <label
               key={type}
-              className="flex items-center justify-between gap-3 rounded-xl border border-zinc-200 px-3 py-2 text-sm"
+              className="flex items-center justify-between gap-3 rounded-xl border border-line px-3 py-2 text-sm"
             >
               <span className="font-medium">{windowLabels[type] ?? type}</span>
               <input
@@ -161,7 +161,7 @@ export default function PricingCalculator() {
                 min={0}
                 step={1}
                 inputMode="numeric"
-                className="w-20 rounded-lg border border-zinc-300 px-2 py-1 text-right text-sm"
+                className="w-20 rounded-lg border border-line-strong px-2 py-1 text-right text-sm"
                 value={windowCounts[type]}
                 onChange={(event) => updateWindowCount(type, event.target.value)}
               />
@@ -178,7 +178,7 @@ export default function PricingCalculator() {
             return (
               <div
                 key={key}
-                className="flex items-start justify-between gap-3 rounded-xl border border-zinc-200 px-3 py-2 text-sm"
+                className="flex items-start justify-between gap-3 rounded-xl border border-line px-3 py-2 text-sm"
               >
                 <div>
                   <p className="font-medium">{addOn.label}</p>
@@ -194,7 +194,7 @@ export default function PricingCalculator() {
                   min={0}
                   step={1}
                   inputMode="numeric"
-                  className="w-20 rounded-lg border border-zinc-300 px-2 py-1 text-right text-sm"
+                  className="w-20 rounded-lg border border-line-strong px-2 py-1 text-right text-sm"
                   value={addOnCounts[key]}
                   onChange={(event) => updateAddOnCount(key, event.target.value)}
                 />
@@ -204,7 +204,7 @@ export default function PricingCalculator() {
         </div>
       </div>
 
-      <div className="mt-5 rounded-xl bg-zinc-50 p-4">
+      <div className="mt-5 rounded-xl bg-surface-muted p-4">
         <div className="flex items-center justify-between text-sm text-zinc-800 font-medium">
           <span>Subtotal</span>
           <span className="font-semibold">{formatCurrency(totals.subtotal)}</span>

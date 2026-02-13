@@ -6,6 +6,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        page: "var(--bg-page)",
+        surface: "var(--bg-surface)",
+        "surface-muted": "var(--bg-surface-muted)",
+        line: "var(--line)",
+        "line-strong": "var(--line-strong)",
+        "line-soft": "var(--line-soft)",
+      },
       fontSize: {
         xs: ["1.0125rem", { lineHeight: "1.35rem" }],
       },

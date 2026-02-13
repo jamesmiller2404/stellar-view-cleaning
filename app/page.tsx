@@ -33,7 +33,7 @@ export default function Page() {
     }).format(value);
 
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
+    <main className="min-h-screen bg-page text-zinc-900">
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-[#5f2dfe] text-white shadow-sm">
         <div className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
@@ -85,14 +85,12 @@ export default function Page() {
 
           </div>
 
-          {/* Quote-by-text card */}
-          <QuoteTextCard />
         </div>
       </section>
 
       {/* Pricing */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
-        <div className="rounded-2xl border border-zinc-200 p-6">
+        <div className="rounded-2xl border border-line p-6">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-2xl font-bold">Budget Pricing</h2>
@@ -112,7 +110,7 @@ export default function Page() {
               </PhoneActionButton>
               <PhoneActionButton
                 kind="tel"
-                className="rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
+                className="rounded-xl border border-line-strong px-4 py-2 text-sm font-semibold hover:bg-surface-muted"
                 ariaLabel="Call now"
               >
                 Call now
@@ -124,7 +122,7 @@ export default function Page() {
             <PricingCalculator />
 
             <div className="grid gap-4">
-              <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+              <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
                 <h3 className="text-lg font-semibold">Residential rates</h3>
                 <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
                   <li>
@@ -142,7 +140,7 @@ export default function Page() {
                 </ul>
               </div>
 
-              <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+              <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
                 <h3 className="text-lg font-semibold">Commercial rates</h3>
                 <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
                   <li>
@@ -161,7 +159,7 @@ export default function Page() {
                 <p className="mt-3 text-xs text-zinc-500">Storefront or small business glass.</p>
               </div>
 
-              <div className="rounded-2xl bg-white p-5 ring-1 ring-zinc-200">
+              <div className="rounded-2xl bg-surface p-5 ring-1 ring-line">
                 <h3 className="text-lg font-semibold">Add-ons</h3>
                 <ul className="mt-3 space-y-2 text-sm text-zinc-800 font-medium">
                   {Object.entries(pricingConfig.addOns).map(([key, addOn]) => (
@@ -184,10 +182,15 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Quote-by-text card */}
+      <section className="mx-auto max-w-5xl px-4 pb-10">
+        <QuoteTextCard />
+      </section>
+
       {/* Services + Process */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200 p-6">
+          <div className="rounded-2xl border border-line p-6">
             <h2 className="text-xl font-bold">Services</h2>
             <div className="mt-4 grid gap-4">
               <div>
@@ -208,7 +211,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-6">
+          <div className="rounded-2xl border border-line p-6">
             <h2 className="text-xl font-bold">How it works</h2>
             <ol className="mt-4 space-y-3 text-sm text-zinc-800 font-medium">
               <li>
@@ -225,7 +228,7 @@ export default function Page() {
               </li>
             </ol>
 
-            <div className="mt-5 rounded-xl bg-zinc-50 p-4">
+            <div className="mt-5 rounded-xl bg-surface-muted p-4">
               <p className="text-sm font-semibold">Satisfaction Fix Guarantee</p>
               <p className="mt-1 text-sm text-zinc-800 font-medium">
                 If you notice a missed spot within 24 hours, text a photo and I'll come back and fix it.
@@ -237,7 +240,7 @@ export default function Page() {
 
       {/* Proof / Photos */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
-        <div className="rounded-2xl border border-zinc-200 p-6">
+        <div className="rounded-2xl border border-line p-6">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-2xl font-bold">Recent Work</h2>
@@ -248,7 +251,7 @@ export default function Page() {
             <PhoneActionButton
               kind="sms"
               body={SMS_PREFILL}
-              className="rounded-xl border border-zinc-300 px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
+              className="rounded-xl border border-line-strong px-4 py-2 text-sm font-semibold hover:bg-surface-muted"
               ariaLabel="Text for a quote"
             >
               Text for Quote
@@ -256,7 +259,7 @@ export default function Page() {
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <figure className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+            <figure className="overflow-hidden rounded-2xl border border-line bg-surface shadow-sm">
               <img
                 src="/static/images/example1_dirty.png"
                 alt="Before cleaning: dirty windows"
@@ -267,7 +270,7 @@ export default function Page() {
                 Before
               </figcaption>
             </figure>
-            <figure className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+            <figure className="overflow-hidden rounded-2xl border border-line bg-surface shadow-sm">
               <img
                 src="/static/images/example1_clear.png"
                 alt="After cleaning: clear windows"
@@ -288,7 +291,7 @@ export default function Page() {
 
       {/* FAQ */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
-        <div className="rounded-2xl border border-zinc-200 p-6">
+        <div className="rounded-2xl border border-line p-6">
           <h2 className="text-2xl font-bold">FAQ</h2>
           <div className="mt-4 grid gap-4">
             <div>
@@ -306,7 +309,7 @@ export default function Page() {
       {/* About + Contact */}
       <section className="mx-auto max-w-5xl px-4 pb-10">
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-zinc-200 p-6">
+          <div className="rounded-2xl border border-line p-6">
             <h2 className="text-xl font-bold">About</h2>
             <p className="mt-3 text-sm text-zinc-800 font-medium">
               Hi, I'm James. I run {BUSINESS_NAME}. I focus on clear pricing, professional results, and reliable service
@@ -318,7 +321,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-200 p-6">
+          <div className="rounded-2xl border border-line p-6">
             <h2 className="text-xl font-bold">Get a quote</h2>
             <p className="mt-2 text-sm text-zinc-800 font-medium">
               Fastest: text me your address/area and what you need.
@@ -335,7 +338,7 @@ export default function Page() {
               </PhoneActionButton>
               <PhoneActionButton
                 kind="tel"
-                className="rounded-xl border border-zinc-300 px-5 py-3 text-center text-sm font-semibold hover:bg-zinc-50"
+                className="rounded-xl border border-line-strong px-5 py-3 text-center text-sm font-semibold hover:bg-surface-muted"
                 ariaLabel="Call now"
               >
                 Call now
@@ -350,25 +353,25 @@ export default function Page() {
                     name="name"
                     required
                     placeholder="Name"
-                    className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
                   />
                   <input
                     name="phone"
                     required
                     placeholder="Phone"
-                    className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
                   />
                 </div>
                 <input
                   name="location"
                   required
                   placeholder="Address or neighborhood"
-                  className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+                  className="rounded-xl border border-line-strong px-3 py-2 text-sm"
                 />
                 <div className="grid gap-3 sm:grid-cols-2">
                   <select
                     name="type"
-                    className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
                     defaultValue="Residential"
                   >
                     <option>Residential</option>
@@ -377,13 +380,13 @@ export default function Page() {
                   <input
                     name="windows"
                     placeholder="Approx # of windows (optional)"
-                    className="rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+                    className="rounded-xl border border-line-strong px-3 py-2 text-sm"
                   />
                 </div>
                 <textarea
                   name="notes"
                   placeholder="Notes (optional)"
-                  className="min-h-[90px] rounded-xl border border-zinc-300 px-3 py-2 text-sm"
+                  className="min-h-[90px] rounded-xl border border-line-strong px-3 py-2 text-sm"
                 />
                 <button
                   type="submit"

@@ -39,7 +39,7 @@ export default function QuoteTextCard() {
   const smsBody = useMemo(() => buildSmsBody(fields), [fields]);
 
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-line bg-surface p-5 shadow-sm">
       <div className="flex items-start justify-between gap-4">
         <div>
           <h2 className="text-lg font-semibold">Text me for a quote</h2>
@@ -56,7 +56,7 @@ export default function QuoteTextCard() {
             value={fields.name}
             onChange={(event) => setFields((prev) => ({ ...prev, name: event.target.value }))}
             placeholder="Full name"
-            className="rounded-xl border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+            className="rounded-xl border border-line-strong px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-soft"
           />
         </label>
 
@@ -66,7 +66,7 @@ export default function QuoteTextCard() {
             value={fields.address}
             onChange={(event) => setFields((prev) => ({ ...prev, address: event.target.value }))}
             placeholder="Street address or neighborhood"
-            className="rounded-xl border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+            className="rounded-xl border border-line-strong px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-soft"
           />
         </label>
 
@@ -81,7 +81,7 @@ export default function QuoteTextCard() {
                   propertyType: event.target.value as QuoteFields["propertyType"],
                 }))
               }
-              className="rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+              className="rounded-xl border border-line-strong bg-white px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-soft"
             >
               <option value="Residential">Residential</option>
               <option value="Storefront">Storefront</option>
@@ -94,7 +94,7 @@ export default function QuoteTextCard() {
               value={fields.windows}
               onChange={(event) => setFields((prev) => ({ ...prev, windows: event.target.value }))}
               placeholder="Ex: 12"
-              className="rounded-xl border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+              className="rounded-xl border border-line-strong px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-soft"
             />
           </label>
         </div>
@@ -105,7 +105,7 @@ export default function QuoteTextCard() {
             value={fields.timing}
             onChange={(event) => setFields((prev) => ({ ...prev, timing: event.target.value }))}
             placeholder="Ex: Tue after 4pm"
-            className="rounded-xl border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+            className="rounded-xl border border-line-strong px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-soft"
           />
         </label>
 
@@ -115,7 +115,7 @@ export default function QuoteTextCard() {
             value={fields.notes}
             onChange={(event) => setFields((prev) => ({ ...prev, notes: event.target.value }))}
             placeholder="Add details or mention any photos"
-            className="min-h-[90px] rounded-xl border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-200"
+            className="min-h-[90px] rounded-xl border border-line-strong px-3 py-2 text-sm font-medium text-zinc-900 shadow-sm focus:border-line-strong focus:outline-none focus:ring-2 focus:ring-line-soft"
           />
         </label>
       </div>

@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg-page: #f2f0ea;
+  --bg-surface: #fbf9f4;
+  --bg-surface-muted: #f5f2ec;
+  --line: #ded9cf;
+  --line-strong: #cfc8bd;
+  --line-soft: #e7e2d9;
+}
